@@ -1,60 +1,142 @@
 <div class="container mt-4">
+
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="text-primary">
-      <i class="bi bi-wallet2 me-2"></i>Comptes Bancaires
+      <i class="bi bi-wallet2 me-2"></i>
+      Comptes Bancaires
     </h2>
-    <button class="btn btn-outline-primary" (click)="loadAccounts()">
-      <i class="bi bi-arrow-clockwise me-1"></i>Actualiser
+
+    <button class="btn btn-outline-primary">
+      <i class="bi bi-arrow-clockwise me-1"></i>
+      Actualiser
     </button>
   </div>
 
-  <!-- Loading Spinner -->
-  <div *ngIf="loading" class="text-center py-5">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Chargement...</span>
-    </div>
-    <p class="mt-2 text-muted">Chargement des comptes...</p>
-  </div>
+  <div class="row">
 
-  <!-- Error Alert -->
-  <div *ngIf="error" class="alert alert-danger" role="alert">
-    <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
-  </div>
-
-  <!-- Accounts Cards -->
-  <div *ngIf="!loading && !error" class="row">
-    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let account of accounts">
+    <!-- Account 1 -->
+    <div class="col-md-6 col-lg-4 mb-4">
       <div class="card shadow-sm h-100">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h5 class="mb-0">{{ account.customerReference }}</h5>
-          <span class="badge" [ngClass]="getStatusBadgeClass(account.status)">
-            {{ account.status }}
-          </span>
+          <h5 class="mb-0">CUST-001</h5>
+          <span class="badge bg-success">ACTIVE</span>
         </div>
         <div class="card-body">
-          <h3 class="text-primary mb-3">
-            {{ account.balance | number:'1.2-2' }} {{ account.currency }}
-          </h3>
+          <h3 class="text-primary mb-3">5,000.00 EUR</h3>
           <div class="mb-2">
             <small class="text-muted">
               <i class="bi bi-currency-exchange me-1"></i>
-              Devise : {{ account.currency }}
+              Devise : EUR
             </small>
           </div>
           <div class="mb-2">
             <small class="text-muted">
               <i class="bi bi-hash me-1"></i>
-              ID : {{ account.id | slice:0:8 }}...
+              ID : 550e8400...
             </small>
           </div>
         </div>
+        <div class="card-footer bg-white border-0">
+          <button class="btn btn-outline-primary btn-sm w-100">
+            <i class="bi bi-eye me-1"></i>
+            Voir les transactions
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- No Data -->
-  <div *ngIf="!loading && !error && accounts.length === 0" class="text-center py-5">
-    <i class="bi bi-inbox display-4 text-muted"></i>
-    <p class="mt-3 text-muted">Aucun compte disponible</p>
+    <!-- Account 2 -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">CUST-002</h5>
+          <span class="badge bg-success">ACTIVE</span>
+        </div>
+        <div class="card-body">
+          <h3 class="text-primary mb-3">1,500.50 USD</h3>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-currency-exchange me-1"></i>
+              Devise : USD
+            </small>
+          </div>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-hash me-1"></i>
+              ID : 123e4567...
+            </small>
+          </div>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <button class="btn btn-outline-primary btn-sm w-100">
+            <i class="bi bi-eye me-1"></i>
+            Voir les transactions
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account 3 -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">CUST-003</h5>
+          <span class="badge bg-danger">BLOCKED</span>
+        </div>
+        <div class="card-body">
+          <h3 class="text-primary mb-3">100.00 EUR</h3>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-currency-exchange me-1"></i>
+              Devise : EUR
+            </small>
+          </div>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-hash me-1"></i>
+              ID : 987fcdeb...
+            </small>
+          </div>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <button class="btn btn-outline-primary btn-sm w-100">
+            <i class="bi bi-eye me-1"></i>
+            Voir les transactions
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account 4 -->
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">CUST-004</h5>
+          <span class="badge bg-success">ACTIVE</span>
+        </div>
+        <div class="card-body">
+          <h3 class="text-primary mb-3">25,000.00 MAD</h3>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-currency-exchange me-1"></i>
+              Devise : MAD
+            </small>
+          </div>
+          <div class="mb-2">
+            <small class="text-muted">
+              <i class="bi bi-hash me-1"></i>
+              ID : 456e7890...
+            </small>
+          </div>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <button class="btn btn-outline-primary btn-sm w-100">
+            <i class="bi bi-eye me-1"></i>
+            Voir les transactions
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
