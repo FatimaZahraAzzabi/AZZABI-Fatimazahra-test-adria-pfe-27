@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.fz.accountservice.enumerations.AccountStatus;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.UUID;
 
