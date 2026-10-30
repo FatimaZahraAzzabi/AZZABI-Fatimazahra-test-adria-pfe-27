@@ -1,13 +1,15 @@
-package net.fz.getewayservice;
+package net.fz.gatewayservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GetewayServiceApplication {
+public class GatewayServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GetewayServiceApplication.class, args);
+        SpringApplication.run(GatewayServiceApplication.class, args);
     }
+
+
 
 }
